@@ -30,17 +30,25 @@ The skill file also hard-codes the rule: the only permitted way to learn anythin
 
 The script is read-only. It never writes, moves, or deletes anything.
 
+### Don't take our word for it — have your agent audit it
+
+`scan.py` is short enough that any competent agent can read all of it before installing. When we ran the install through WorkBuddy, it audited the code unprompted and reported back: three read-only calls (`os.listdir` / `os.walk` / `os.stat`), no writes, no network requests, no `subprocess` / `eval` / `exec`; the skill file contains no prompt injection and no exfiltration instructions. Its own phrasing for the schema finding was that privacy here is *structural, not a promise*.
+
+Ask yours to do the same before you install. That is the point of keeping the collector this small.
+
 ## Install
 
 Requires [WorkBuddy](https://www.workbuddy.cn/) or another desktop agent compatible with the OpenClaw skill format.
 
-Add a plugin marketplace and enter:
+**Simplest way — just ask your agent to do it.** Paste this:
 
-```
-GiaSip/ai-hr
-```
+> 请帮我安装一下这个项目 https://github.com/GiaSip/ai-hr ，然后帮我试一下
 
-Then install the `ai-hr` plugin and say to it:
+That is verbatim the message we tested with. The agent read the repo, audited the code on its own initiative, installed the skill, and ran it — one message, no menus, no marketplace dialog.
+
+**Or register it as a plugin marketplace** (this is what gets you update notifications): open WorkBuddy's *add marketplace* dialog and enter `GiaSip/ai-hr` — the full URL works too — then install the `ai-hr` plugin.
+
+Either way, trigger it with:
 
 > 给我的电脑画个像
 
