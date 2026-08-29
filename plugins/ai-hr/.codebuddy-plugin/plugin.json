@@ -1,0 +1,19 @@
+{
+  "name": "ai-hr",
+  "version": "1.0.0",
+  "description": "AI 人事部——扫描用户电脑的文件目录统计特征（只读统计，不读任何文件名和内容），判定其在 AI 接管世界后被分配到的身份型号（16 型），签发一张可直接分享的《人类安置通知书》竖版卡片图。当用户说\"AI 人事部\"、\"给我的电脑画个像\"、\"我会被 AI 替代吗\"、\"人类安置通知书\"、\"测测我是什么型\"时触发。",
+  "author": {
+    "name": "GiaSip"
+  },
+  "repository": "https://github.com/GiaSip/ai-hr",
+  "homepage": "https://github.com/GiaSip/ai-hr",
+  "license": "MIT",
+  "keywords": [
+    "ai-hr",
+    "人类安置通知书",
+    "电脑人格",
+    "文件目录",
+    "分享卡片",
+    "隐私"
+  ]
+}
