@@ -1,71 +1,73 @@
-# AI 人事部
+# AI HR Department（AI 人事部）
 
-> AI 接管世界之后，你会被分配到什么岗位？
+> After AI takes over, what job will you be assigned?
 
-这是一个装在你电脑上的技能包。它扫一遍你的文件目录，然后以「AI 人事部」的名义，给你签发一份《人类安置通知书》——判定你属于 16 型中的哪一型，并附上判定依据。
+[简体中文](README.zh-CN.md)
 
-最后你会拿到一张可以直接发朋友圈的卡片图。
+This skill scans your file directories, then — in the name of the "AI HR Department" — issues you a **Human Placement Notice**: which of 16 types you are, and the evidence behind the verdict.
 
-## 它的核心判据
+You get back a vertical card image you can post straight to social media.
 
-**整理得越好，越容易被替代。**
+> **Note on language:** the verdict, the 16 role names and the card are all written in Chinese. The skill is built for a Chinese-speaking audience. Everything below describes how it works; the output itself will not be in English.
 
-因为你把工作整理清晰的那一刻，就已经替 AI 完成了最难的部分。反过来，那些命名混乱、层级失控、只有本人看得懂的目录，AI 学不会。
+## The premise
 
-所以在这套判定里，混乱是护城河。
+**The tidier you are, the easier you are to replace.**
 
-## 隐私：靠结构，不靠承诺
+The moment you organize your work into something clean and legible, you have already done the hardest part of the job for the AI. Conversely: directories with chaotic naming, runaway nesting, and structure only you can parse — those the AI cannot learn.
 
-这是本项目最要紧的一件事，也是它敢开源的原因。
+So in this system, **mess is a moat**.
 
-采集脚本 [`plugins/ai-hr/scripts/scan.py`](plugins/ai-hr/scripts/scan.py) 只有一百多行，纯 Python 标准库，**你可以完整读完它**。它输出的 JSON 里**根本没有存放文件名的字段**——只有数字、扩展名和固定的枚举键。
+## Privacy: structural, not promised
 
-这意味着：**不是"我们承诺不看你的文件名"，而是大模型从头到尾就没有机会接触到任何文件名、路径或人名。** 隐私是结构性的，不是一句口头保证。
+This is the most important thing about this project, and the reason it can be open source.
 
-技能说明里同时写死了一条硬规则：只允许通过这个脚本了解你的文件系统，禁止自行列目录。
+The collector — [`plugins/ai-hr/scripts/scan.py`](plugins/ai-hr/scripts/scan.py) — is ~120 lines of pure Python standard library. **You can read all of it.** The JSON it emits **has no field that holds a filename**; only counts, file extensions, and fixed enum keys.
 
-脚本对你的磁盘只读，不写入、不移动、不删除任何东西。
+Which means: this is not "we promise not to look at your filenames." It is that **the model never gets the chance to see one**. Privacy here is a property of the output schema, not a pledge in a policy page.
 
-## 安装
+The skill file also hard-codes the rule: the only permitted way to learn anything about your filesystem is this script — listing directories directly is forbidden.
 
-需要 [WorkBuddy](https://www.workbuddy.cn/)（或其他兼容 OpenClaw 技能格式的桌面智能体）。
+The script is read-only. It never writes, moves, or deletes anything.
 
-在 WorkBuddy 里添加插件市场，填：
+## Install
+
+Requires [WorkBuddy](https://www.workbuddy.cn/) or another desktop agent compatible with the OpenClaw skill format.
+
+Add a plugin marketplace and enter:
 
 ```
 GiaSip/ai-hr
 ```
 
-然后安装其中的 `ai-hr` 插件。装好后对它说：
+Then install the `ai-hr` plugin and say to it:
 
 > 给我的电脑画个像
 
-也可以说「AI 人事部」「我会被 AI 替代吗」「测测我是什么型」。
+No runtime setup needed — WorkBuddy ships with its own Python.
 
-运行环境不需要你准备——WorkBuddy 自带 Python。
+## The 16 types
 
-## 16 型
+Four binary axes, combined into 16 types, each with a four-letter code:
 
-四个二元轴，组合出 16 型，每型一个四字母代码：
-
-| 轴 | 含义 |
+| Axis | Meaning |
 |---|---|
-| **R / C** | 结构：规整 ↔ 混沌 |
-| **M / K** | 产出：造东西 ↔ 囤东西 |
-| **S / B** | 节奏：稳定 ↔ 突发 |
-| **A / F** | 时间：考古层厚 ↔ 轻装上阵 |
+| **R / C** | Structure: regular ↔ chaotic |
+| **M / K** | Output: maker ↔ keeper |
+| **S / B** | Rhythm: steady ↔ bursty |
+| **A / F** | Time: deep archive ↔ travelling light |
 
-比如 **RMBA「节点爆破手」**：平日静如死机，一到节点就从历史层里精准调取模板、拼装出规整成品——像一株只在截止日前三天开花的植物。
+For example **RMBA**「节点爆破手」(*Deadline Detonator*): dormant for weeks, then at every deadline pulls templates out of the archive and assembles something immaculate — a plant that flowers only three days before the due date.
 
-其中 4 型标记为稀有。稀有的判据是"极度矛盾的特质组合"，不是某个指标的极端值。
+Four of the sixteen are marked rare. Rarity is defined by **contradictory trait combinations**, not by an extreme value on any single axis.
 
-## 关于判词
+## On the tone
 
-判词可以毒、可以冒犯——社交传播吃的就是冒犯，太温和没有转发的理由。
+The verdicts are meant to sting. Social sharing runs on a little offense — something too gentle gives nobody a reason to repost it.
 
-但有条底线：**只针对你堆文件的方式，不针对人**。不涉及外貌、性别、地域、收入。目标是让你笑着骂一句，然后截图发出去，而不是让你真的难受。
+But there is a line: **it judges how you pile up files, never who you are.** Nothing about appearance, gender, region, or income. The goal is that you laugh, swear once, screenshot it, and post it — not that you actually feel bad.
 
-所有判定都是"预审"性质：评的是未来 AI 的用人偏好，不是现在的你。
+Every verdict is framed as a *pre-assessment*: it reflects what a future AI would want in a hire, not a judgment of who you are today.
 
 ## License
 
