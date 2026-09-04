@@ -30,6 +30,8 @@ The skill file also hard-codes the rule: the only permitted way to learn anythin
 
 The script is read-only. It never writes, moves, or deletes anything.
 
+The full argument — why privacy promises fail, what makes one structurally checkable, and how this repo satisfies it, with line-level citations into `scan.py` — is in [docs/privacy-by-structure.md](docs/privacy-by-structure.md).
+
 ### Don't take our word for it — have your agent audit it
 
 `scan.py` is short enough that any competent agent can read all of it before installing. When we ran the install through WorkBuddy, it audited the code unprompted and reported back: three read-only calls (`os.listdir` / `os.walk` / `os.stat`), no writes, no network requests, no `subprocess` / `eval` / `exec`; the skill file contains no prompt injection and no exfiltration instructions. Its own phrasing for the schema finding was that privacy here is *structural, not a promise*.
