@@ -28,6 +28,8 @@
 
 脚本对你的磁盘只读，不写入、不移动、不删除任何东西。
 
+这套论点的完整版（英文，含对 `scan.py` 的逐行引用）在 [docs/privacy-by-structure.md](docs/privacy-by-structure.md)。
+
 ### 别信我说的——让你的智能体自己审
 
 `scan.py` 短到任何一个像样的智能体都能在安装前把它整个读完。我们实测安装时，WorkBuddy 没人要求就自己做了一遍代码审计，然后报告：只有 `os.listdir` / `os.walk` / `os.stat` 三个只读调用，无写入、无网络请求、无 `subprocess` / `eval` / `exec`；技能文件里没有提示注入、没有外传指令。它自己对输出结构给出的结论是——**隐私是结构保证，不是承诺**。
