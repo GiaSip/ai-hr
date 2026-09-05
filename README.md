@@ -71,6 +71,23 @@ For example **RMBA**「节点爆破手」(*Deadline Detonator*): dormant for wee
 
 Four of the sixteen are marked rare. Rarity is defined by **contradictory trait combinations**, not by an extreme value on any single axis.
 
+### The 16 protons
+
+Every type comes with its own **proton** — a small creature the AI HR Department planted in your computer ahead of time. All sixteen share one body; only the accessories differ, one slot per axis:
+
+| Axis | Slot | Regular / Maker / Steady / Archive | Chaotic / Keeper / Bursty / Light |
+|---|---|---|---|
+| R / C | head | a filed folder | exploded hair with sticky notes |
+| M / K | hands | an oversized wrench | a cardboard box hugged to the chest |
+| S / B | face | round glasses | a lit fuse in the mouth, dark circles |
+| A / F | back | dusty, cobwebbed archive boxes | a tiny rolling suitcase |
+
+The four rare types wear their accessories in gold.
+
+![The 16 protons](docs/design/mascots/contact-sheet-16-1k.png)
+
+The card shows your proton, and the verdict tells you which of the sixteen you drew. The PNGs live in `plugins/ai-hr/assets/mascots/`; the 2K originals, the accessory sheets and every generation prompt are in `docs/design/mascots/`.
+
 ## On the tone
 
 The verdicts are meant to sting. Social sharing runs on a little offense — something too gentle gives nobody a reason to repost it.
