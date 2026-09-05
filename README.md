@@ -52,7 +52,9 @@ That is verbatim the message we tested with. The agent read the repo, audited th
 
 Either way, trigger it with:
 
-> 给我的电脑画个像
+> 测测我会不会被 AI 裁掉
+
+Any of these also work: 「我会被 AI 替代吗」, 「AI 人事部，给我下结论」, 「看看我是哪一只」, 「给我的电脑画个像」.
 
 No runtime setup needed — WorkBuddy ships with its own Python.
 
