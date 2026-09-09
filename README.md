@@ -98,6 +98,12 @@ But there is a line: **it judges how you pile up files, never who you are.** Not
 
 Every verdict is framed as a *pre-assessment*: it reflects what a future AI would want in a hire, not a judgment of who you are today.
 
+## Honest boundaries
+
+- The notice is a joke with a structural privacy guarantee, not an assessment of you. The 16 types are a comic frame, not psychology.
+- It sees shape only, so it cannot tell a tidy archive from an empty one. "Replaceable" is a statement about structure, never about competence.
+- Output is Chinese only; the English README describes how it works, not what you will see.
+
 ## License
 
 MIT
